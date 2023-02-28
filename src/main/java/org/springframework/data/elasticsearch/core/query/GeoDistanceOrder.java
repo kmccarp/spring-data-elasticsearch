@@ -27,6 +27,8 @@ import org.springframework.data.elasticsearch.core.geo.GeoPoint;
  */
 public class GeoDistanceOrder extends Order {
 
+	private static final long serialVersionUID = 1;
+
 	public static final DistanceType DEFAULT_DISTANCE_TYPE = DistanceType.arc;
 	public static final String DEFAULT_UNIT = "m";
 	public static final Boolean DEFAULT_IGNORE_UNMAPPED = false;

@@ -64,7 +64,7 @@ import org.springframework.util.Assert;
  * @deprecated since 5.0
  */
 @Deprecated
-public class ResponseConverter {
+public final class ResponseConverter {
 	private ResponseConverter() {}
 
 	// region alias

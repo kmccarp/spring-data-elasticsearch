@@ -65,7 +65,7 @@ import org.springframework.web.util.UriBuilder;
  */
 public class ReactiveMockClientTestsUtils {
 
-	private final static Map<String, InetSocketAddress> ADDRESS_CACHE = new ConcurrentHashMap<>();
+	private static final Map<String, InetSocketAddress> ADDRESS_CACHE = new ConcurrentHashMap<>();
 
 	public static MockDelegatingElasticsearchHostProvider<SingleNodeHostProvider> single(String host) {
 		return provider(host);

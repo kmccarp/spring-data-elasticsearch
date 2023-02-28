@@ -430,7 +430,7 @@ public class ReactiveElasticsearchTemplate extends AbstractReactiveElasticsearch
 		return StringUtils.hasText(pit) ? closePointInTime(pit) : Mono.empty();
 	}
 
-	static private class PitSearchAfter {
+	private static class PitSearchAfter {
 		private final BaseQuery baseQuery;
 		@Nullable private final Sort sort;
 		private final String pit;

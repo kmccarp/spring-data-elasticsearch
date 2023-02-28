@@ -285,7 +285,7 @@ public abstract class AbstractElasticsearchTemplate implements ElasticsearchOper
 		return doExists(id, index);
 	}
 
-	abstract protected boolean doExists(String id, IndexCoordinates index);
+	protected abstract boolean doExists(String id, IndexCoordinates index);
 
 	@Override
 	public String delete(String id, Class<?> entityType) {
@@ -492,17 +492,17 @@ public abstract class AbstractElasticsearchTemplate implements ElasticsearchOper
 		return search(query, clazz, getIndexCoordinatesFor(clazz));
 	}
 
-	abstract public <T> SearchScrollHits<T> searchScrollStart(long scrollTimeInMillis, Query query, Class<T> clazz,
+	public abstract <T> SearchScrollHits<T> searchScrollStart(long scrollTimeInMillis, Query query, Class<T> clazz,
 			IndexCoordinates index);
 
-	abstract public <T> SearchScrollHits<T> searchScrollContinue(String scrollId, long scrollTimeInMillis, Class<T> clazz,
+	public abstract <T> SearchScrollHits<T> searchScrollContinue(String scrollId, long scrollTimeInMillis, Class<T> clazz,
 			IndexCoordinates index);
 
 	public void searchScrollClear(String scrollId) {
 		searchScrollClear(Collections.singletonList(scrollId));
 	}
 
-	abstract public void searchScrollClear(List<String> scrollIds);
+	public abstract void searchScrollClear(List<String> scrollIds);
 
 	@Override
 	public String openPointInTime(IndexCoordinates index, Duration keepAlive, Boolean ignoreUnavailable) {
@@ -566,7 +566,7 @@ public abstract class AbstractElasticsearchTemplate implements ElasticsearchOper
 				.getVersion();
 
 		if (version != null && Long.class.isAssignableFrom(version.getClass())) {
-			return ((Long) version);
+			return (Long) version;
 		}
 
 		return null;

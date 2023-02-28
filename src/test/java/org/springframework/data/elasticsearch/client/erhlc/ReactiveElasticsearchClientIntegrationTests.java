@@ -1023,8 +1023,8 @@ public class ReactiveElasticsearchClientIntegrationTests {
 				.source(searchSourceBuilder);
 
 		client
-				.suggest(request).as(StepVerifier::create).expectNextMatches(suggestions -> suggestions
-						.getSuggestion("firstname").getEntries().get(0).getOptions().get(0).getText().string().equals("chade"))
+				.suggest(request).as(StepVerifier::create).expectNextMatches(suggestions -> "chade".equals(suggestions
+						.getSuggestion("firstname").getEntries().get(0).getOptions().get(0).getText().string()))
 				.verifyComplete();
 	}
 

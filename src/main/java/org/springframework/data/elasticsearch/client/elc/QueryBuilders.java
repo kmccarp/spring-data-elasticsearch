@@ -169,6 +169,6 @@ public final class QueryBuilders {
 	}
 
 	public static LatLonGeoLocation latLon(double lat, double lon) {
-		return LatLonGeoLocation.of(_0 -> _0.lat(lat).lon(lon));
+		return LatLonGeoLocation.of(0 -> 0.lat(lat).lon(lon));
 	}
 }
