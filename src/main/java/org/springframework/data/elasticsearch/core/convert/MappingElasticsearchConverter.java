@@ -183,7 +183,7 @@ public class MappingElasticsearchConverter
 	/**
 	 * base class for {@link Reader} and {@link Writer} keeping the common properties
 	 */
-	private static class Base {
+	private static final class Base {
 
 		protected final MappingContext<? extends ElasticsearchPersistentEntity<?>, ElasticsearchPersistentProperty> mappingContext;
 		protected final ElasticsearchTypeMapper typeMapper;
@@ -739,7 +739,7 @@ public class MappingElasticsearchConverter
 	 * Class to do the actual writing. The methods originally were in the MappingElasticsearchConverter class, but are
 	 * refactored to allow for keeping state during the conversion of an object.
 	 */
-	static private class Writer extends Base {
+	private static class Writer extends Base {
 
 		private boolean writeTypeHints = true;
 
@@ -993,13 +993,8 @@ public class MappingElasticsearchConverter
 		}
 
 		private static boolean hasEmptyValue(Object value) {
-
-			if (value instanceof String s && s.isEmpty() || value instanceof Collection<?> c && c.isEmpty()
-					|| value instanceof Map<?, ?> m && m.isEmpty()) {
-				return true;
-			}
-
-			return false;
+			return value instanceof String s && s.isEmpty() || value instanceof Collection<?> c && c.isEmpty()
+					|| value instanceof Map<?, ?> m && m.isEmpty();
 		}
 
 		@SuppressWarnings("unchecked")

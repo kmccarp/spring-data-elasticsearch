@@ -472,15 +472,18 @@ abstract class ElasticsearchTemplateCallbackTests {
 
 		@Override
 		public boolean equals(Object o) {
-			if (this == o)
+			if (this == o) {
 				return true;
-			if (o == null || getClass() != o.getClass())
+			}
+			if (o == null || getClass() != o.getClass()) {
 				return false;
+			}
 
 			Person person = (Person) o;
 
-			if (!Objects.equals(id, person.id))
+			if (!Objects.equals(id, person.id)) {
 				return false;
+			}
 			return Objects.equals(firstname, person.firstname);
 		}
 

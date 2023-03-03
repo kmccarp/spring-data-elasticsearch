@@ -50,7 +50,7 @@ public abstract class IndexTemplateIntegrationTests implements NewElasticsearchC
 
 	boolean rhlcWithCluster8() {
 		var clusterVersion = ((AbstractElasticsearchTemplate) operations).getClusterVersion();
-		return (oldElasticsearchClient() && clusterVersion != null && clusterVersion.startsWith("8"));
+		return oldElasticsearchClient() && clusterVersion != null && clusterVersion.startsWith("8");
 	}
 
 	@DisabledIf(value = "rhlcWithCluster8", disabledReason = "RHLC fails to parse response from ES 8.2")

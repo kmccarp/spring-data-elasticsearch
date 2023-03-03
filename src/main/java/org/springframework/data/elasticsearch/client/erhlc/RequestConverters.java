@@ -123,7 +123,7 @@ import org.springframework.lang.Nullable;
  */
 @Deprecated
 @SuppressWarnings("JavadocReference")
-public class RequestConverters {
+public final class RequestConverters {
 
 	private static final XContentType REQUEST_BODY_CONTENT_TYPE = XContentType.JSON;
 
@@ -336,10 +336,10 @@ public class RequestConverters {
 
 	public static Request index(IndexRequest indexRequest) {
 		String method = Strings.hasLength(indexRequest.id()) ? HttpMethod.PUT.name() : HttpMethod.POST.name();
-		boolean isCreate = (indexRequest.opType() == DocWriteRequest.OpType.CREATE);
+		boolean isCreate = indexRequest.opType() == DocWriteRequest.OpType.CREATE;
 		String endpoint;
 		if (indexRequest.opType() == DocWriteRequest.OpType.CREATE) {
-			endpoint = indexRequest.type().equals("_doc") ? endpoint(indexRequest.index(), "_create", indexRequest.id())
+			endpoint = "_doc".equals(indexRequest.type()) ? endpoint(indexRequest.index(), "_create", indexRequest.id())
 					: endpoint(indexRequest.index(), indexRequest.type(), indexRequest.id(), "_create");
 		} else {
 			endpoint = endpoint(indexRequest.index(), indexRequest.type(), indexRequest.id());
@@ -368,7 +368,7 @@ public class RequestConverters {
 	}
 
 	public static Request update(UpdateRequest updateRequest) {
-		String endpoint = updateRequest.type().equals("_doc")
+		String endpoint = "_doc".equals(updateRequest.type())
 				? endpoint(updateRequest.index(), "_update", updateRequest.id())
 				: endpoint(updateRequest.index(), updateRequest.type(), updateRequest.id(), "_update");
 		Request request = new Request(HttpMethod.POST.name(), endpoint);
@@ -508,7 +508,7 @@ public class RequestConverters {
 	}
 
 	public static Request explain(ExplainRequest explainRequest) {
-		String endpoint = explainRequest.type().equals("_doc")
+		String endpoint = "_doc".equals(explainRequest.type())
 				? endpoint(explainRequest.index(), "_explain", explainRequest.id())
 				: endpoint(explainRequest.index(), explainRequest.type(), explainRequest.id(), "_explain");
 		Request request = new Request(HttpMethod.GET.name(),

@@ -810,8 +810,8 @@ public abstract class ReactiveElasticsearchIntegrationTests {
 		operations.multiGet(getQuery, SampleEntity.class, IndexCoordinates.of(indexNameProvider.indexName())) //
 				.map(MultiGetItem::getItem) //
 				.as(StepVerifier::create) //
-				.expectNextMatches(entity -> entity.getMessage().equals("updated 1")) //
-				.expectNextMatches(entity -> entity.getMessage().equals("updated 2")) //
+				.expectNextMatches(entity -> "updated 1".equals(entity.getMessage())) //
+				.expectNextMatches(entity -> "updated 2".equals(entity.getMessage())) //
 				.verifyComplete();
 	}
 
@@ -962,7 +962,7 @@ public abstract class ReactiveElasticsearchIntegrationTests {
 
 		operations.get(entity.getId(), SampleEntity.class, IndexCoordinates.of(indexNameProvider.indexName())) //
 				.as(StepVerifier::create) //
-				.expectNextMatches(foundEntity -> foundEntity.getMessage().equals("updated")) //
+				.expectNextMatches(foundEntity -> "updated".equals(foundEntity.getMessage())) //
 				.verifyComplete();
 	}
 
