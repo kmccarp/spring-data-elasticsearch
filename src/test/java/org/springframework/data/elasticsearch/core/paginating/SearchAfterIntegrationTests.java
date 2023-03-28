@@ -85,7 +85,7 @@ public abstract class SearchAfterIntegrationTests {
 			query.setSearchAfter(searchAfter);
 			SearchHits<Entity> searchHits = operations.search(query, Entity.class);
 
-			if (searchHits.getSearchHits().size() == 0) {
+			if (searchHits.getSearchHits().isEmpty()) {
 				break;
 			}
 			foundEntities.addAll(searchHits.stream().map(SearchHit::getContent).collect(Collectors.toList()));
@@ -131,13 +131,16 @@ public abstract class SearchAfterIntegrationTests {
 
 		@Override
 		public boolean equals(Object o) {
-			if (this == o)
+			if (this == o) {
 				return true;
-			if (!(o instanceof Entity entity))
+			}
+			if (!(o instanceof Entity entity)) {
 				return false;
+			}
 
-			if (!Objects.equals(id, entity.id))
+			if (!Objects.equals(id, entity.id)) {
 				return false;
+			}
 			return Objects.equals(message, entity.message);
 		}
 

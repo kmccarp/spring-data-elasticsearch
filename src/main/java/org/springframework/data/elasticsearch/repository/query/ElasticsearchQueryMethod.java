@@ -196,7 +196,7 @@ public class ElasticsearchQueryMethod extends QueryMethod {
 
 		try {
 			// dealing with Collection<SearchHit<T>>, getting to T
-			ParameterizedType methodGenericReturnType = ((ParameterizedType) method.getGenericReturnType());
+			ParameterizedType methodGenericReturnType = (ParameterizedType) method.getGenericReturnType();
 			if (isAllowedGenericType(methodGenericReturnType)) {
 				ParameterizedType collectionTypeArgument = (ParameterizedType) methodGenericReturnType
 						.getActualTypeArguments()[0];

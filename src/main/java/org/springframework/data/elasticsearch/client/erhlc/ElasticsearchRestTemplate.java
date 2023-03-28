@@ -363,8 +363,9 @@ public class ElasticsearchRestTemplate extends AbstractElasticsearchTemplate {
 			Map<String, String> failedDocuments = new HashMap<>();
 			for (BulkItemResponse item : bulkResponse.getItems()) {
 
-				if (item.isFailed())
+				if (item.isFailed()) {
 					failedDocuments.put(item.getId(), item.getFailureMessage());
+				}
 			}
 			throw new BulkFailureException(
 					"Bulk operation has failures. Use BulkFailureException.getFailedDocuments() for detailed messages ["

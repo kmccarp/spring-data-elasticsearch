@@ -229,7 +229,7 @@ public class SimpleElasticsearchPersistentProperty extends
 				propertyValueConverter = new NumberRangePropertyValueConverter(this);
 				break;
 			}
-			case Ip_Range: {
+			case Ip_Range: {break;
 				// TODO currently unsupported, needs a library like https://seancfoley.github.io/IPAddress/
 			}
 			default:
@@ -276,12 +276,6 @@ public class SimpleElasticsearchPersistentProperty extends
 
 		// register converters for built-in formats
 		for (DateFormat dateFormat : dateFormats) {
-			switch (dateFormat) {
-				case weekyear, weekyear_week, weekyear_week_day -> LOGGER.warn(String.format(
-						"No default converter available for '%s' and date format '%s'. Use a custom converter instead.",
-						actualType.getName(), dateFormat.name()));
-				default -> converters.add(ElasticsearchDateConverter.of(dateFormat));
-			}
 		}
 
 		for (String dateFormatPattern : dateFormatPatterns) {
