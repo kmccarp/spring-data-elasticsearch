@@ -89,11 +89,11 @@ public interface RequestCreator {
 	}
 
 	default Function<MainRequest, Request> ping() {
-		return (request) -> RequestConverters.ping();
+		return request -> RequestConverters.ping();
 	}
 
 	default Function<MainRequest, Request> info() {
-		return (request) -> RequestConverters.info();
+		return request -> RequestConverters.info();
 	}
 
 	default Function<MultiGetRequest, Request> multiGet() {

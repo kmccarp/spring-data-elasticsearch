@@ -37,7 +37,7 @@ import org.springframework.web.reactive.function.client.ClientResponse;
  * @deprecated since 5.0
  */
 @Deprecated
-class RawActionResponse extends ActionResponse {
+final class RawActionResponse extends ActionResponse {
 
 	private final ClientResponse delegate;
 

@@ -22,7 +22,7 @@ import org.springframework.data.elasticsearch.core.IndexOperations;
  *
  * @author Peter-Josef Meisch
  */
-public class IndexInitializer {
+public final class IndexInitializer {
 
 	private IndexInitializer() {}
 

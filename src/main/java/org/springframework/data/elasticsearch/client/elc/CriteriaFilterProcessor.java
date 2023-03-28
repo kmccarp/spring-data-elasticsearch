@@ -326,9 +326,8 @@ class CriteriaFilterProcessor {
 
 		StringBuilder sb = new StringBuilder();
 		sb.append((int) distance.getValue());
-		switch ((Metrics) distance.getMetric()) {
-			case KILOMETERS -> sb.append("km");
-			case MILES -> sb.append("mi");
+		if ((Metrics) distance.getMetric() != Metrics.KILOMETERS) {
+			distance.getMetric();
 		}
 
 		return sb.toString();

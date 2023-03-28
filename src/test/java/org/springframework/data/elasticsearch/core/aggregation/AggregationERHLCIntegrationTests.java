@@ -82,9 +82,9 @@ public class AggregationERHLCIntegrationTests extends AggregationIntegrationTest
 		Aggregations aggregations = ((ElasticsearchAggregations) aggregationsContainer).aggregations();
 
 		assertThat(aggregations.asMap().get(aggsName)).isNotNull();
-		Aggregation keyword_bucket_stats = aggregations.asMap().get(pipelineAggsName);
-		assertThat(keyword_bucket_stats).isInstanceOf(StatsBucket.class);
-		if (keyword_bucket_stats instanceof ParsedStatsBucket statsBucket) {
+		Aggregation keywordBucketStats = aggregations.asMap().get(pipelineAggsName);
+		assertThat(keywordBucketStats).isInstanceOf(StatsBucket.class);
+		if (keywordBucketStats instanceof ParsedStatsBucket statsBucket) {
 			// Rest client
 			assertThat(statsBucket.getMin()).isEqualTo(1.0);
 			assertThat(statsBucket.getMax()).isEqualTo(3.0);

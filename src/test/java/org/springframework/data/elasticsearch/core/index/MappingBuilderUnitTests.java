@@ -1904,8 +1904,8 @@ public class MappingBuilderUnitTests extends MappingContextBaseTests {
 			return my_vector;
 		}
 
-		public void setMy_vector(@Nullable float[] my_vector) {
-			this.my_vector = my_vector;
+		public void setMy_vector(@Nullable float[] myVector) {
+			this.my_vector = myVector;
 		}
 	}
 
