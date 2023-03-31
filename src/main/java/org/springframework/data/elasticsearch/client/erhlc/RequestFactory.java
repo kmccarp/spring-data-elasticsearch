@@ -653,12 +653,10 @@ class RequestFactory {
 
 		if (query.getOpType() != null) {
 
-			switch (query.getOpType()) {
-				case INDEX:
-					indexRequest.opType(DocWriteRequest.OpType.INDEX);
-					break;
-				case CREATE:
-					indexRequest.opType(DocWriteRequest.OpType.CREATE);
+			if (query.getOpType() == IndexQuery.OpType.INDEX) {
+				indexRequest.opType(DocWriteRequest.OpType.INDEX);
+			} else if (query.getOpType() == IndexQuery.OpType.CREATE) {
+				indexRequest.opType(DocWriteRequest.OpType.CREATE);
 			}
 		}
 

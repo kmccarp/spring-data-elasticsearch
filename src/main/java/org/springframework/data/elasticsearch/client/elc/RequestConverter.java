@@ -242,12 +242,10 @@ class RequestConverter {
 		Assert.notNull(indexCoordinates, "indexCoordinates must not be null");
 		Assert.notNull(mapping, "mapping must not be null");
 
-		PutMappingRequest request = new PutMappingRequest.Builder() //
+		return new PutMappingRequest.Builder() //
 				.withJson(new StringReader(mapping.toJson())) //
 				.index(Arrays.asList(indexCoordinates.getIndexNames())) //
 				.build();
-
-		return request;
 	}
 
 	public GetMappingRequest indicesGetMappingRequest(IndexCoordinates indexCoordinates) {
@@ -453,9 +451,8 @@ class RequestConverter {
 				.routing(query.getRouting()); //
 
 		if (query.getOpType() != null) {
-			switch (query.getOpType()) {
-				case INDEX -> builder.opType(OpType.Index);
-				case CREATE -> builder.opType(OpType.Create);
+			if (query.getOpType() != IndexQuery.OpType.INDEX) {
+				query.getOpType();
 			}
 		}
 
@@ -623,7 +620,7 @@ class RequestConverter {
 		BulkRequest.Builder builder = new BulkRequest.Builder();
 
 		if (bulkOptions.getTimeout() != null) {
-			builder.timeout(tb -> tb.time(Long.valueOf(bulkOptions.getTimeout().toMillis()).toString() + "ms"));
+			builder.timeout(tb -> tb.time(Long.toString(bulkOptions.getTimeout().toMillis()) + "ms"));
 		}
 
 		builder.refresh(TypeUtils.refresh(refreshPolicy));
@@ -1495,7 +1492,7 @@ class RequestConverter {
 		Assert.notNull(query, "query must not be null");
 		Assert.notNull(index, "index must not be null");
 
-		co.elastic.clients.elasticsearch._types.query_dsl.MoreLikeThisQuery moreLikeThisQuery = co.elastic.clients.elasticsearch._types.query_dsl.MoreLikeThisQuery
+		return co.elastic.clients.elasticsearch._types.query_dsl.MoreLikeThisQuery
 				.of(q -> {
 					q.like(Like.of(l -> l.document(ld -> ld.index(index.getIndexName()).id(query.getId()))))
 							.fields(query.getFields());
@@ -1534,8 +1531,6 @@ class RequestConverter {
 
 					return q;
 				});
-
-		return moreLikeThisQuery;
 	}
 
 	public OpenPointInTimeRequest searchOpenPointInTimeRequest(IndexCoordinates index, Duration keepAlive,

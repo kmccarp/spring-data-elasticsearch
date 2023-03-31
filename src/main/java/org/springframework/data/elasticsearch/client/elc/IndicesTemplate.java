@@ -228,9 +228,7 @@ public class IndicesTemplate extends ChildTemplate<ElasticsearchTransport, Elast
 		IndexCoordinates indexCoordinates = getIndexCoordinates();
 		GetMappingRequest getMappingRequest = requestConverter.indicesGetMappingRequest(indexCoordinates);
 		GetMappingResponse getMappingResponse = execute(client -> client.getMapping(getMappingRequest));
-
-		Document mappingResponse = responseConverter.indicesGetMapping(getMappingResponse, indexCoordinates);
-		return mappingResponse;
+		return responseConverter.indicesGetMapping(getMappingResponse, indexCoordinates);
 	}
 
 	@Override

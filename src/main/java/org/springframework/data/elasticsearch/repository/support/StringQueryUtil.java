@@ -28,7 +28,7 @@ import org.springframework.util.NumberUtils;
  * @author Peter-Josef Meisch
  * @author Niklas Herder
  */
-final public class StringQueryUtil {
+public final class StringQueryUtil {
 
 	private static final Pattern PARAMETER_PLACEHOLDER = Pattern.compile("\\?(\\d+)");
 
