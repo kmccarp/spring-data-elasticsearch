@@ -137,8 +137,9 @@ class CriteriaQueryProcessor {
 
 		Field field = criteria.getField();
 
-		if (field == null || criteria.getQueryCriteriaEntries().isEmpty())
+		if (field == null || criteria.getQueryCriteriaEntries().isEmpty()) {
 			return null;
+		}
 
 		String fieldName = field.getName();
 		Assert.notNull(fieldName, "Unknown field " + fieldName);

@@ -257,7 +257,7 @@ public final class ElasticsearchClients {
 
 		Consumer<String> setHeaderIfNotPresent = header -> {
 			if (transportOptionsBuilder.build().headers().stream() //
-					.noneMatch((h) -> h.getKey().equalsIgnoreCase(header))) {
+					.noneMatch(h -> h.getKey().equalsIgnoreCase(header))) {
 				// need to add the compatibility header, this is only done automatically when not passing in custom options.
 				// code copied from RestClientTransport as it is not available outside the package
 				transportOptionsBuilder.addHeader(header, jsonContentType.toString());
@@ -307,7 +307,7 @@ public final class ElasticsearchClients {
 
 			String headers = Arrays.stream(request.getAllHeaders())
 					.map(header -> header.getName()
-							+ ((header.getName().equals("Authorization")) ? ": *****" : ": " + header.getValue()))
+							+ (("Authorization".equals(header.getName())) ? ": *****" : ": " + header.getValue()))
 					.collect(Collectors.joining(", ", "[", "]"));
 
 			if (request instanceof HttpEntityEnclosingRequest entityRequest
@@ -336,7 +336,7 @@ public final class ElasticsearchClients {
 
 			String headers = Arrays.stream(response.getAllHeaders())
 					.map(header -> header.getName()
-							+ ((header.getName().equals("Authorization")) ? ": *****" : ": " + header.getValue()))
+							+ (("Authorization".equals(header.getName())) ? ": *****" : ": " + header.getValue()))
 					.collect(Collectors.joining(", ", "[", "]"));
 
 			// no way of logging the body, in this callback, it is not read yet, later there is no callback possibility in

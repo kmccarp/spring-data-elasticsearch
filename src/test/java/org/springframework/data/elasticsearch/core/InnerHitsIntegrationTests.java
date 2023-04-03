@@ -109,7 +109,7 @@ public abstract class InnerHitsIntegrationTests {
 		softly.assertAll();
 	}
 
-	abstract protected Query buildQueryForInnerHits(String innerHitName, String nestedQueryPath, String matchField,
+	protected abstract Query buildQueryForInnerHits(String innerHitName, String nestedQueryPath, String matchField,
 			String matchValue);
 
 	@Document(indexName = "#{@indexNameProvider.indexName()}")

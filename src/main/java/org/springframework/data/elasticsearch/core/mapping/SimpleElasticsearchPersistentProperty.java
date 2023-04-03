@@ -229,7 +229,7 @@ public class SimpleElasticsearchPersistentProperty extends
 				propertyValueConverter = new NumberRangePropertyValueConverter(this);
 				break;
 			}
-			case Ip_Range: {
+			case Ip_Range: {break;
 				// TODO currently unsupported, needs a library like https://seancfoley.github.io/IPAddress/
 			}
 			default:

@@ -28,9 +28,9 @@ import org.springframework.util.ObjectUtils;
  * @deprecated use {org.springframework.data.domain.Range} instead.
  */
 @Deprecated(since = "5.0", forRemoval = true)
-public class Range<T> {
+public final class Range<T> {
 
-	private final static Range<?> UNBOUNDED = Range.of(Bound.unbounded(), Bound.UNBOUNDED);
+	private static final Range<?> UNBOUNDED = Range.of(Bound.unbounded(), Bound.UNBOUNDED);
 
 	/**
 	 * The lower bound of the range.
@@ -377,8 +377,9 @@ public class Range<T> {
 				return false;
 			}
 
-			if (inclusive != bound.inclusive)
+			if (inclusive != bound.inclusive) {
 				return false;
+			}
 
 			return ObjectUtils.nullSafeEquals(value, bound.value);
 		}

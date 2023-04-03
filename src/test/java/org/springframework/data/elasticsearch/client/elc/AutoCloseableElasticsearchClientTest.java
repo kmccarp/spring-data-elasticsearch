@@ -43,8 +43,6 @@ class AutoCloseableElasticsearchClientTest {
 	void shouldCloseTheRestClient() throws Exception {
 
 		ElasticsearchTransport transport = new RestClientTransport(restClient, jsonMapper);
-		// noinspection EmptyTryBlock
-		try (AutoCloseableElasticsearchClient ignored = new AutoCloseableElasticsearchClient(transport)) {}
 
 		verify(restClient).close();
 	}

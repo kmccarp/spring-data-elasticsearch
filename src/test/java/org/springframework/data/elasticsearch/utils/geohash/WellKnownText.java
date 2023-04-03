@@ -36,9 +36,9 @@ public class WellKnownText {
 	public static final String COMMA = ",";
 	public static final String NAN = "NaN";
 
-	private final String NUMBER = "<NUMBER>";
-	private final String EOF = "END-OF-STREAM";
-	private final String EOL = "END-OF-LINE";
+	private final String number = "<NUMBER>";
+	private final String eof = "END-OF-STREAM";
+	private final String eol = "END-OF-LINE";
 
 	private final boolean coerce;
 	private final GeometryValidator validator;
@@ -138,11 +138,10 @@ public class WellKnownText {
 	 */
 	private Geometry parseGeometry(StreamTokenizer stream) throws IOException, ParseException {
 		final String type = nextWord(stream).toLowerCase(Locale.ROOT);
-		switch (type) {
-			case "point":
-				return parsePoint(stream);
-			case "bbox":
-				return parseBBox(stream);
+		if ("point".equals(type)) {
+			return parsePoint(stream);
+		} else if ("bbox".equals(type)) {
+			return parseBBox(stream);
 		}
 		throw new IllegalArgumentException("Unknown geometry type: " + type);
 	}
@@ -235,9 +234,9 @@ public class WellKnownText {
 	private String tokenString(StreamTokenizer stream) {
 		return switch (stream.ttype) {
 			case StreamTokenizer.TT_WORD -> stream.sval;
-			case StreamTokenizer.TT_EOF -> EOF;
-			case StreamTokenizer.TT_EOL -> EOL;
-			case StreamTokenizer.TT_NUMBER -> NUMBER;
+			case StreamTokenizer.TT_EOF -> eof;
+			case StreamTokenizer.TT_EOL -> eol;
+			case StreamTokenizer.TT_NUMBER -> number;
 			default -> "'" + (char) stream.ttype + "'";
 		};
 	}

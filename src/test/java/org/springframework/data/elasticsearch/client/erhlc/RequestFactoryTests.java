@@ -91,7 +91,7 @@ class RequestFactoryTests {
 		converter = new MappingElasticsearchConverter(mappingContext, new GenericConversionService());
 		converter.afterPropertiesSet();
 
-		requestFactory = new RequestFactory((converter));
+		requestFactory = new RequestFactory(converter);
 	}
 
 	@Test // DATAES-187
