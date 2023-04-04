@@ -528,7 +528,7 @@ public class ElasticsearchTemplate extends AbstractElasticsearchTemplate {
 			} else {
 				if (LOGGER.isWarnEnabled()) {
 					LOGGER
-							.warn(String.format("multisearch responsecontains failure: {}", responseItem.failure().error().reason()));
+							.warn(String.format("multisearch responsecontains failure: {}"));
 				}
 			}
 		}

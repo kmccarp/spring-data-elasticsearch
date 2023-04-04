@@ -148,7 +148,7 @@ public class HighlightQueryBuilder {
 		if (builder instanceof HighlightBuilder.Field field
 				&& parameters instanceof HighlightFieldParameters fieldParameters) {
 
-			if ((fieldParameters).getFragmentOffset() > -1) {
+			if (fieldParameters.getFragmentOffset() > -1) {
 				field.fragmentOffset(fieldParameters.getFragmentOffset());
 			}
 

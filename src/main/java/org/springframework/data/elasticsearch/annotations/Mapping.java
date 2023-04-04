@@ -75,6 +75,6 @@ public @interface Mapping {
 	String runtimeFieldsPath() default "";
 
 	enum Detection {
-		DEFAULT, TRUE, FALSE;
+		DEFAULT, TRUE, FALSE
 	}
 }

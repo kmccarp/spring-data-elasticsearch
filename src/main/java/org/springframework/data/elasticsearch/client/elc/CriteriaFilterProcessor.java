@@ -326,9 +326,10 @@ class CriteriaFilterProcessor {
 
 		StringBuilder sb = new StringBuilder();
 		sb.append((int) distance.getValue());
-		switch ((Metrics) distance.getMetric()) {
-			case KILOMETERS -> sb.append("km");
-			case MILES -> sb.append("mi");
+		if ((Metrics) distance.getMetric() == Metrics.KILOMETERS) {
+			sb.append("km");
+		} else if ((Metrics) distance.getMetric() == Metrics.MILES) {
+			sb.append("mi");
 		}
 
 		return sb.toString();

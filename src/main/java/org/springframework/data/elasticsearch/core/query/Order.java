@@ -26,6 +26,8 @@ import org.springframework.lang.Nullable;
  */
 public class Order extends Sort.Order {
 
+	private static final long serialVersionUID = 1;
+
 	public static final Mode DEFAULT_MODE = Mode.min;
 	public static final Sort.NullHandling DEFAULT_NULL_HANDLING = Sort.NullHandling.NATIVE;
 

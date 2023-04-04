@@ -94,7 +94,7 @@ import org.elasticsearch.xcontent.ParseField;
  * @deprecated since 5.0
  */
 @Deprecated
-public class NamedXContents {
+public final class NamedXContents {
 
 	private NamedXContents() {
 		// contains only utility methods
