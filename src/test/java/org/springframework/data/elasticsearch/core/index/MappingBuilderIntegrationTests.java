@@ -596,8 +596,8 @@ public abstract class MappingBuilderIntegrationTests extends MappingContextBaseT
 			return with_positions;
 		}
 
-		public void setWith_positions(@Nullable String with_positions) {
-			this.with_positions = with_positions;
+		public void setWith_positions(@Nullable String withPositions) {
+			this.with_positions = withPositions;
 		}
 
 		@Nullable
@@ -605,8 +605,8 @@ public abstract class MappingBuilderIntegrationTests extends MappingContextBaseT
 			return with_offsets;
 		}
 
-		public void setWith_offsets(@Nullable String with_offsets) {
-			this.with_offsets = with_offsets;
+		public void setWith_offsets(@Nullable String withOffsets) {
+			this.with_offsets = withOffsets;
 		}
 
 		@Nullable
@@ -614,8 +614,8 @@ public abstract class MappingBuilderIntegrationTests extends MappingContextBaseT
 			return with_positions_offsets;
 		}
 
-		public void setWith_positions_offsets(@Nullable String with_positions_offsets) {
-			this.with_positions_offsets = with_positions_offsets;
+		public void setWith_positions_offsets(@Nullable String withPositionsOffsets) {
+			this.with_positions_offsets = withPositionsOffsets;
 		}
 
 		@Nullable
@@ -623,8 +623,8 @@ public abstract class MappingBuilderIntegrationTests extends MappingContextBaseT
 			return with_positions_payloads;
 		}
 
-		public void setWith_positions_payloads(@Nullable String with_positions_payloads) {
-			this.with_positions_payloads = with_positions_payloads;
+		public void setWith_positions_payloads(@Nullable String withPositionsPayloads) {
+			this.with_positions_payloads = withPositionsPayloads;
 		}
 
 		@Nullable
@@ -632,8 +632,8 @@ public abstract class MappingBuilderIntegrationTests extends MappingContextBaseT
 			return with_positions_offsets_payloads;
 		}
 
-		public void setWith_positions_offsets_payloads(@Nullable String with_positions_offsets_payloads) {
-			this.with_positions_offsets_payloads = with_positions_offsets_payloads;
+		public void setWith_positions_offsets_payloads(@Nullable String withPositionsOffsetsPayloads) {
+			this.with_positions_offsets_payloads = withPositionsOffsetsPayloads;
 		}
 	}
 
@@ -749,8 +749,8 @@ public abstract class MappingBuilderIntegrationTests extends MappingContextBaseT
 			return dense_vector;
 		}
 
-		public void setDense_vector(@Nullable float[] dense_vector) {
-			this.dense_vector = dense_vector;
+		public void setDense_vector(@Nullable float[] denseVector) {
+			this.dense_vector = denseVector;
 		}
 	}
 

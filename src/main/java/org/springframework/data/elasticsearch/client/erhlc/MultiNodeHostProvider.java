@@ -50,7 +50,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Deprecated
 class MultiNodeHostProvider implements HostProvider<MultiNodeHostProvider> {
 
-	private final static Log LOGGER = LogFactory.getLog(MultiNodeHostProvider.class);
+	private static final Log LOGGER = LogFactory.getLog(MultiNodeHostProvider.class);
 
 	private final WebClientProvider clientProvider;
 	private final Map<InetSocketAddress, ElasticsearchHost> hosts;

@@ -154,14 +154,17 @@ public class ElasticsearchQueryCreator extends AbstractQueryCreator<CriteriaQuer
 					secondParameter = parameters.next();
 				}
 
-				if (firstParameter instanceof GeoPoint && secondParameter instanceof String)
+				if (firstParameter instanceof GeoPoint && secondParameter instanceof String) {
 					return criteria.within((GeoPoint) firstParameter, (String) secondParameter);
+				}
 
-				if (firstParameter instanceof Point && secondParameter instanceof Distance)
+				if (firstParameter instanceof Point && secondParameter instanceof Distance) {
 					return criteria.within((Point) firstParameter, (Distance) secondParameter);
+				}
 
-				if (firstParameter instanceof String && secondParameter instanceof String)
+				if (firstParameter instanceof String && secondParameter instanceof String) {
 					return criteria.within((String) firstParameter, (String) secondParameter);
+				}
 			}
 			case NEAR: {
 				Object firstParameter = parameters.next();
@@ -177,14 +180,17 @@ public class ElasticsearchQueryCreator extends AbstractQueryCreator<CriteriaQuer
 				Object secondParameter = parameters.next();
 
 				// "near" query can be the same query as the "within" query
-				if (firstParameter instanceof GeoPoint && secondParameter instanceof String)
+				if (firstParameter instanceof GeoPoint && secondParameter instanceof String) {
 					return criteria.within((GeoPoint) firstParameter, (String) secondParameter);
+				}
 
-				if (firstParameter instanceof Point && secondParameter instanceof Distance)
+				if (firstParameter instanceof Point && secondParameter instanceof Distance) {
 					return criteria.within((Point) firstParameter, (Distance) secondParameter);
+				}
 
-				if (firstParameter instanceof String && secondParameter instanceof String)
+				if (firstParameter instanceof String && secondParameter instanceof String) {
 					return criteria.within((String) firstParameter, (String) secondParameter);
+				}
 			}
 			case EXISTS:
 			case IS_NOT_NULL:

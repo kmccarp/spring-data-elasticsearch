@@ -144,7 +144,7 @@ public abstract class AbstractIndexTemplate implements IndexOperations {
 		return doGetMapping(getIndexCoordinates());
 	}
 
-	abstract protected Map<String, Object> doGetMapping(IndexCoordinates index);
+	protected abstract Map<String, Object> doGetMapping(IndexCoordinates index);
 
 	@Override
 	public Settings getSettings() {

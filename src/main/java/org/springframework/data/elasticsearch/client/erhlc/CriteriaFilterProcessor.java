@@ -215,9 +215,10 @@ class CriteriaFilterProcessor {
 
 		Metrics metric = (Metrics) distance.getMetric();
 
-		switch (metric) {
-			case KILOMETERS -> sb.append("km");
-			case MILES -> sb.append("mi");
+		if (metric == Metrics.KILOMETERS) {
+			sb.append("km");
+		} else if (metric == Metrics.MILES) {
+			sb.append("mi");
 		}
 	}
 

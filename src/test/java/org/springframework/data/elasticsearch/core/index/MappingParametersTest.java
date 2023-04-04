@@ -23,8 +23,8 @@ import org.springframework.lang.Nullable;
  */
 public class MappingParametersTest extends MappingContextBaseTests {
 
-	private ElasticsearchPersistentEntity<?> entity = elasticsearchConverter.get().getMappingContext()
-			.getRequiredPersistentEntity(AnnotatedClass.class);
+	private final ElasticsearchPersistentEntity<?> entity = elasticsearchConverter.get().getMappingContext()
+.getRequiredPersistentEntity(AnnotatedClass.class);
 
 	@Test // DATAES-621
 	public void shouldCreateParametersForFieldAnnotation() {

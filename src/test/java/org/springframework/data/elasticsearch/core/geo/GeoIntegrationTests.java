@@ -63,7 +63,7 @@ public abstract class GeoIntegrationTests implements NewElasticsearchClientDevel
 
 	boolean rhlcWithCluster8() {
 		var clusterVersion = ((AbstractElasticsearchTemplate) operations).getClusterVersion();
-		return (oldElasticsearchClient() && clusterVersion != null && clusterVersion.startsWith("8"));
+		return oldElasticsearchClient() && clusterVersion != null && clusterVersion.startsWith("8");
 	}
 
 	@BeforeEach

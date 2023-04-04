@@ -2151,33 +2151,45 @@ public class MappingElasticsearchConverterUnitTests {
 
 		@Override
 		public boolean equals(Object o) {
-			if (this == o)
+			if (this == o) {
 				return true;
-			if (o == null || getClass() != o.getClass())
+			}
+			if (o == null || getClass() != o.getClass()) {
 				return false;
+			}
 
 			Person person = (Person) o;
 
-			if (!Objects.equals(id, person.id))
+			if (!Objects.equals(id, person.id)) {
 				return false;
-			if (!Objects.equals(name, person.name))
+			}
+			if (!Objects.equals(name, person.name)) {
 				return false;
-			if (!Objects.equals(firstName, person.firstName))
+			}
+			if (!Objects.equals(firstName, person.firstName)) {
 				return false;
-			if (!Objects.equals(lastName, person.lastName))
+			}
+			if (!Objects.equals(lastName, person.lastName)) {
 				return false;
-			if (!Objects.equals(birthDate, person.birthDate))
+			}
+			if (!Objects.equals(birthDate, person.birthDate)) {
 				return false;
-			if (gender != person.gender)
+			}
+			if (gender != person.gender) {
 				return false;
-			if (!Objects.equals(address, person.address))
+			}
+			if (!Objects.equals(address, person.address)) {
 				return false;
-			if (!Objects.equals(coWorkers, person.coWorkers))
+			}
+			if (!Objects.equals(coWorkers, person.coWorkers)) {
 				return false;
-			if (!Objects.equals(inventoryList, person.inventoryList))
+			}
+			if (!Objects.equals(inventoryList, person.inventoryList)) {
 				return false;
-			if (!Objects.equals(shippingAddresses, person.shippingAddresses))
+			}
+			if (!Objects.equals(shippingAddresses, person.shippingAddresses)) {
 				return false;
+			}
 			return Objects.equals(inventoryMap, person.inventoryMap);
 		}
 
@@ -2263,15 +2275,18 @@ public class MappingElasticsearchConverterUnitTests {
 
 		@Override
 		public boolean equals(Object o) {
-			if (this == o)
+			if (this == o) {
 				return true;
-			if (o == null || getClass() != o.getClass())
+			}
+			if (o == null || getClass() != o.getClass()) {
 				return false;
+			}
 
 			Gun gun = (Gun) o;
 
-			if (shotsPerMagazine != gun.shotsPerMagazine)
+			if (shotsPerMagazine != gun.shotsPerMagazine) {
 				return false;
+			}
 			return label.equals(gun.label);
 		}
 
@@ -2297,10 +2312,12 @@ public class MappingElasticsearchConverterUnitTests {
 
 		@Override
 		public boolean equals(Object o) {
-			if (this == o)
+			if (this == o) {
 				return true;
-			if (!(o instanceof Grenade grenade))
+			}
+			if (!(o instanceof Grenade grenade)) {
 				return false;
+			}
 
 			return label.equals(grenade.label);
 		}
@@ -2331,15 +2348,19 @@ public class MappingElasticsearchConverterUnitTests {
 
 		@Override
 		public boolean equals(Object o) {
-			if (this == o)
+			if (this == o) {
 				return true;
-			if (!(o instanceof Rifle rifle))
+			}
+			if (!(o instanceof Rifle rifle)) {
 				return false;
+			}
 
-			if (Double.compare(rifle.weight, weight) != 0)
+			if (Double.compare(rifle.weight, weight) != 0) {
 				return false;
-			if (maxShotsPerMagazine != rifle.maxShotsPerMagazine)
+			}
+			if (maxShotsPerMagazine != rifle.maxShotsPerMagazine) {
 				return false;
+			}
 			return label.equals(rifle.label);
 		}
 
@@ -2370,10 +2391,12 @@ public class MappingElasticsearchConverterUnitTests {
 
 		@Override
 		public boolean equals(Object o) {
-			if (this == o)
+			if (this == o) {
 				return true;
-			if (!(o instanceof ShotGun shotGun))
+			}
+			if (!(o instanceof ShotGun shotGun)) {
 				return false;
+			}
 
 			return label.equals(shotGun.label);
 		}
@@ -2418,15 +2441,19 @@ public class MappingElasticsearchConverterUnitTests {
 
 		@Override
 		public boolean equals(Object o) {
-			if (this == o)
+			if (this == o) {
 				return true;
-			if (!(o instanceof Address address))
+			}
+			if (!(o instanceof Address address)) {
 				return false;
+			}
 
-			if (!Objects.equals(location, address.location))
+			if (!Objects.equals(location, address.location)) {
 				return false;
-			if (!Objects.equals(street, address.street))
+			}
+			if (!Objects.equals(street, address.street)) {
 				return false;
+			}
 			return Objects.equals(city, address.city);
 		}
 
@@ -2453,10 +2480,12 @@ public class MappingElasticsearchConverterUnitTests {
 
 		@Override
 		public boolean equals(Object o) {
-			if (this == o)
+			if (this == o) {
 				return true;
-			if (!(o instanceof Place place))
+			}
+			if (!(o instanceof Place place)) {
 				return false;
+			}
 
 			return Objects.equals(name, place.name);
 		}

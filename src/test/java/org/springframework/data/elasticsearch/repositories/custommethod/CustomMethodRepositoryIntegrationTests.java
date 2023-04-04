@@ -88,7 +88,7 @@ public abstract class CustomMethodRepositoryIntegrationTests implements NewElast
 
 	boolean rhlcWithCluster8() {
 		var clusterVersion = ((AbstractElasticsearchTemplate) operations).getClusterVersion();
-		return (oldElasticsearchClient() && clusterVersion != null && clusterVersion.startsWith("8"));
+		return oldElasticsearchClient() && clusterVersion != null && clusterVersion.startsWith("8");
 	}
 
 	@BeforeEach

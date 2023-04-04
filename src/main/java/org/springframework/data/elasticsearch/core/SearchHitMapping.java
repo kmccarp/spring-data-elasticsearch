@@ -47,7 +47,7 @@ import org.springframework.util.Assert;
  * @author Sascha Woo
  * @since 4.0
  */
-public class SearchHitMapping<T> {
+public final class SearchHitMapping<T> {
 
 	private final Class<T> type;
 	private final ElasticsearchConverter converter;
@@ -282,7 +282,7 @@ public class SearchHitMapping<T> {
 
 	private static class ElasticsearchPersistentEntityWithNestedMetaData {
 		@Nullable private ElasticsearchPersistentEntity<?> entity;
-		private NestedMetaData nestedMetaData;
+		private final NestedMetaData nestedMetaData;
 
 		public ElasticsearchPersistentEntityWithNestedMetaData(@Nullable ElasticsearchPersistentEntity<?> entity,
 				NestedMetaData nestedMetaData) {

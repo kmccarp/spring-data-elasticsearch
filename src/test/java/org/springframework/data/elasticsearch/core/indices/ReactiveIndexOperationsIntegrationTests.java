@@ -71,7 +71,7 @@ public abstract class ReactiveIndexOperationsIntegrationTests implements NewElas
 
 	boolean rhlcWithCluster8() {
 		var clusterVersion = ((AbstractReactiveElasticsearchTemplate) operations).getClusterVersion().block();
-		return (oldElasticsearchClient() && clusterVersion != null && clusterVersion.startsWith("8"));
+		return oldElasticsearchClient() && clusterVersion != null && clusterVersion.startsWith("8");
 	}
 
 	@BeforeEach
