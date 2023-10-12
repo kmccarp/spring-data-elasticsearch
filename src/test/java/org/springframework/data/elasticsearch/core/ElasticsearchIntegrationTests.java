@@ -3799,27 +3799,36 @@ public abstract class ElasticsearchIntegrationTests {
 
 		@Override
 		public boolean equals(Object o) {
-			if (this == o)
-				return true;
-			if (o == null || getClass() != o.getClass())
-				return false;
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
 
 			SampleEntity that = (SampleEntity) o;
 
-			if (rate != that.rate)
-				return false;
-			if (available != that.available)
-				return false;
-			if (!Objects.equals(id, that.id))
-				return false;
-			if (!Objects.equals(type, that.type))
-				return false;
-			if (!Objects.equals(message, that.message))
-				return false;
-			if (!Objects.equals(scriptedRate, that.scriptedRate))
-				return false;
-			if (!Objects.equals(location, that.location))
-				return false;
+            if (rate != that.rate) {
+                return false;
+            }
+            if (available != that.available) {
+                return false;
+            }
+            if (!Objects.equals(id, that.id)) {
+                return false;
+            }
+            if (!Objects.equals(type, that.type)) {
+                return false;
+            }
+            if (!Objects.equals(message, that.message)) {
+                return false;
+            }
+            if (!Objects.equals(scriptedRate, that.scriptedRate)) {
+                return false;
+            }
+            if (!Objects.equals(location, that.location)) {
+                return false;
+            }
 			return Objects.equals(version, that.version);
 		}
 
@@ -4546,17 +4555,21 @@ public abstract class ElasticsearchIntegrationTests {
 
 		@Override
 		public boolean equals(Object o) {
-			if (this == o)
-				return true;
-			if (o == null || getClass() != o.getClass())
-				return false;
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
 
 			ImmutableEntity that = (ImmutableEntity) o;
 
-			if (!id.equals(that.id))
-				return false;
-			if (!text.equals(that.text))
-				return false;
+            if (!id.equals(that.id)) {
+                return false;
+            }
+            if (!text.equals(that.text)) {
+                return false;
+            }
 			return Objects.equals(seqNoPrimaryTerm, that.seqNoPrimaryTerm);
 		}
 
@@ -4604,17 +4617,21 @@ public abstract class ElasticsearchIntegrationTests {
 
 		@Override
 		public boolean equals(Object o) {
-			if (this == o)
-				return true;
-			if (o == null || getClass() != o.getClass())
-				return false;
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
 
 			ImmutableWithScriptedEntity that = (ImmutableWithScriptedEntity) o;
 
-			if (rate != that.rate)
-				return false;
-			if (!id.equals(that.id))
-				return false;
+            if (rate != that.rate) {
+                return false;
+            }
+            if (!id.equals(that.id)) {
+                return false;
+            }
 			return Objects.equals(scriptedRate, that.scriptedRate);
 		}
 
@@ -4714,17 +4731,21 @@ public abstract class ElasticsearchIntegrationTests {
 
 		@Override
 		public boolean equals(Object o) {
-			if (this == o)
-				return true;
-			if (o == null || getClass() != o.getClass())
-				return false;
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
 
 			NonFieldBackedPropertyClass that = (NonFieldBackedPropertyClass) o;
 
-			if (!Objects.equals(id, that.id))
-				return false;
-			if (!Objects.equals(firstName, that.firstName))
-				return false;
+            if (!Objects.equals(id, that.id)) {
+                return false;
+            }
+            if (!Objects.equals(firstName, that.firstName)) {
+                return false;
+            }
 			return Objects.equals(lastName, that.lastName);
 		}
 

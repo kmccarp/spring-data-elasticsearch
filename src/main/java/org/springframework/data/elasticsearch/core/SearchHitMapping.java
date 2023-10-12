@@ -48,7 +48,7 @@ import org.springframework.util.Assert;
  * @author Jakob Hoeper
  * @since 4.0
  */
-public class SearchHitMapping<T> {
+public final class SearchHitMapping<T> {
 
 	private final Class<T> type;
 	private final ElasticsearchConverter converter;

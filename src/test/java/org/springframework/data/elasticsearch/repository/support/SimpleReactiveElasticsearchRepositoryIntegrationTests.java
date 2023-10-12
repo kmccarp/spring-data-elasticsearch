@@ -246,7 +246,7 @@ abstract class SimpleReactiveElasticsearchRepositoryIntegrationTests {
 				.as(StepVerifier::create) //
 				.expectNextMatches(searchHit -> {
 					List<String> hitHighlightField = searchHit.getHighlightField("message");
-					return hitHighlightField.size() == 1 && hitHighlightField.get(0).equals("<em>message</em>");
+					return hitHighlightField.size() == 1 && "<em>message</em>".equals(hitHighlightField.get(0));
 				}) //
 				.expectNextCount(2) //
 				.verifyComplete();
@@ -264,7 +264,7 @@ abstract class SimpleReactiveElasticsearchRepositoryIntegrationTests {
 				.as(StepVerifier::create) //
 				.expectNextMatches(searchHit -> {
 					List<String> hitHighlightField = searchHit.getHighlightField("message");
-					return hitHighlightField.size() == 1 && hitHighlightField.get(0).equals("<em>message</em>");
+					return hitHighlightField.size() == 1 && "<em>message</em>".equals(hitHighlightField.get(0));
 				}) //
 				.expectNextCount(2) //
 				.verifyComplete();

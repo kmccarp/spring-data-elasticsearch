@@ -554,25 +554,33 @@ abstract class ReactiveQueryByExampleElasticsearchExecutorIntegrationTests {
 
 		@Override
 		public boolean equals(Object o) {
-			if (this == o)
-				return true;
-			if (o == null || getClass() != o.getClass())
-				return false;
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
 
 			SampleEntity that = (SampleEntity) o;
 
-			if (!Objects.equals(rate, that.rate))
-				return false;
-			if (available != that.available)
-				return false;
-			if (!Objects.equals(documentId, that.documentId))
-				return false;
-			if (!Objects.equals(type, that.type))
-				return false;
-			if (!Objects.equals(message, that.message))
-				return false;
-			if (!Objects.equals(sampleNestedEntity, that.sampleNestedEntity))
-				return false;
+            if (!Objects.equals(rate, that.rate)) {
+                return false;
+            }
+            if (available != that.available) {
+                return false;
+            }
+            if (!Objects.equals(documentId, that.documentId)) {
+                return false;
+            }
+            if (!Objects.equals(type, that.type)) {
+                return false;
+            }
+            if (!Objects.equals(message, that.message)) {
+                return false;
+            }
+            if (!Objects.equals(sampleNestedEntity, that.sampleNestedEntity)) {
+                return false;
+            }
 			return Objects.equals(version, that.version);
 		}
 
@@ -616,10 +624,12 @@ abstract class ReactiveQueryByExampleElasticsearchExecutorIntegrationTests {
 
 			@Override
 			public boolean equals(Object o) {
-				if (this == o)
-					return true;
-				if (o == null || getClass() != o.getClass())
-					return false;
+                if (this == o) {
+                    return true;
+                }
+                if (o == null || getClass() != o.getClass()) {
+                    return false;
+                }
 
 				SampleEntity.SampleNestedEntity that = (SampleEntity.SampleNestedEntity) o;
 

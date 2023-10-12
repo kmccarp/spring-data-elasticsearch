@@ -127,11 +127,11 @@ class RequestConverter {
 	}
 
 	// region Cluster client
-	public co.elastic.clients.elasticsearch.cluster.HealthRequest clusterHealthRequest() {
+	public HealthRequest clusterHealthRequest() {
 		return new HealthRequest.Builder().build();
 	}
 
-	public co.elastic.clients.elasticsearch.cluster.PutComponentTemplateRequest clusterPutComponentTemplateRequest(
+	public PutComponentTemplateRequest clusterPutComponentTemplateRequest(
 			org.springframework.data.elasticsearch.core.index.PutComponentTemplateRequest putComponentTemplateRequest) {
 
 		Assert.notNull(putComponentTemplateRequest, "putComponentTemplateRequest must not be null");
@@ -474,7 +474,7 @@ class RequestConverter {
 
 		Assert.notNull(existsIndexTemplateRequest, "existsIndexTemplateRequest must not be null");
 
-		return co.elastic.clients.elasticsearch.indices.ExistsIndexTemplateRequest
+		return ExistsIndexTemplateRequest
 				.of(b -> b.name(existsIndexTemplateRequest.templateName()));
 	}
 
@@ -570,10 +570,11 @@ class RequestConverter {
 				.routing(query.getRouting()); //
 
 		if (query.getOpType() != null) {
-			switch (query.getOpType()) {
-				case INDEX -> builder.opType(OpType.Index);
-				case CREATE -> builder.opType(OpType.Create);
-			}
+            if (query.getOpType() == org.springframework.data.elasticsearch.core.query.IndexQuery$OpType.INDEX) {
+                builder.opType(OpType.Index);
+            } else if (query.getOpType() == org.springframework.data.elasticsearch.core.query.IndexQuery$OpType.CREATE) {
+                builder.opType(OpType.Create);
+            }
 		}
 
 		builder.refresh(refresh(refreshPolicy));
@@ -740,7 +741,7 @@ class RequestConverter {
 		BulkRequest.Builder builder = new BulkRequest.Builder();
 
 		if (bulkOptions.getTimeout() != null) {
-			builder.timeout(tb -> tb.time(Long.valueOf(bulkOptions.getTimeout().toMillis()).toString() + "ms"));
+			builder.timeout(tb -> tb.time(Long.toString(bulkOptions.getTimeout().toMillis()) + "ms"));
 		}
 
 		builder.refresh(refresh(refreshPolicy));
@@ -1155,7 +1156,7 @@ class RequestConverter {
 				var query = param.query();
 				mrb.searches(sb -> sb //
 						.header(h -> {
-							var searchType = (query instanceof NativeQuery nativeQuery && nativeQuery.getKnnQuery() != null) ? null
+							var searchType = query instanceof NativeQuery nativeQuery && nativeQuery.getKnnQuery() != null ? null
 									: searchType(query.getSearchType());
 
 							h //
@@ -1290,7 +1291,7 @@ class RequestConverter {
 
 		ElasticsearchPersistentEntity<?> persistentEntity = getPersistentEntity(clazz);
 
-		var searchType = (query instanceof NativeQuery nativeQuery && nativeQuery.getKnnQuery() != null) ? null
+		var searchType = query instanceof NativeQuery nativeQuery && nativeQuery.getKnnQuery() != null ? null
 				: searchType(query.getSearchType());
 
 		builder //
@@ -1537,7 +1538,7 @@ class RequestConverter {
 		String finalUnmappedType = unmappedType;
 		var finalNestedSortValue = nestedSortValue;
 
-		ElasticsearchPersistentProperty property = (persistentEntity != null) //
+		ElasticsearchPersistentProperty property = persistentEntity != null //
 				? persistentEntity.getPersistentProperty(order.getProperty()) //
 				: null;
 		String fieldName = property != null ? property.getFieldName() : order.getProperty();
@@ -1547,8 +1548,8 @@ class RequestConverter {
 		}
 
 		var finalMissing = missing != null ? missing
-				: (order.getNullHandling() == Sort.NullHandling.NULLS_FIRST) ? "_first"
-						: ((order.getNullHandling() == Sort.NullHandling.NULLS_LAST) ? "_last" : null);
+				: order.getNullHandling() == Sort.NullHandling.NULLS_FIRST ? "_first"
+						: (order.getNullHandling() == Sort.NullHandling.NULLS_LAST ? "_last" : null);
 
 		return SortOptions.of(so -> so //
 				.field(f -> {
@@ -1580,7 +1581,7 @@ class RequestConverter {
 	@Nullable
 	private NestedSortValue getNestedSort(@Nullable Order.Nested nested,
 			@Nullable ElasticsearchPersistentEntity<?> persistentEntity) {
-		return (nested == null || persistentEntity == null) ? null
+		return nested == null || persistentEntity == null ? null
 				: NestedSortValue.of(b -> b //
 						.path(elasticsearchConverter.updateFieldNames(nested.getPath(), persistentEntity)) //
 						.maxChildren(nested.getMaxChildren()) //

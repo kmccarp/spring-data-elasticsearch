@@ -406,13 +406,13 @@ public class EntityOperations {
 		}
 	}
 
-	/**
-	 * Mapped entity with an associated {@link ElasticsearchPersistentEntity}.
-	 *
-	 * @param <T>
-	 * @since 3.2
-	 */
-	private static class MappedEntity<T> implements Entity<T> {
+    /**
+     * Mapped entity with an associated {@link ElasticsearchPersistentEntity}.
+     *
+     * @param <T>
+     * @since 3.2
+     */
+    private static final class MappedEntity<T> implements Entity<T> {
 
 		private final ElasticsearchPersistentEntity<?> entity;
 		private final IdentifierAccessor idAccessor;
@@ -472,11 +472,11 @@ public class EntityOperations {
 		}
 	}
 
-	/**
-	 * @param <T>
-	 * @since 3.2
-	 */
-	private static class AdaptableMappedEntity<T> extends MappedEntity<T> implements AdaptableEntity<T> {
+    /**
+     * @param <T>
+     * @since 3.2
+     */
+    private static final class AdaptableMappedEntity<T> extends MappedEntity<T> implements AdaptableEntity<T> {
 
 		private final ElasticsearchPersistentEntity<?> entity;
 		private final ConvertingPropertyAccessor<T> propertyAccessor;

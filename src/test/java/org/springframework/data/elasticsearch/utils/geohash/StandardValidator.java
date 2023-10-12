@@ -40,7 +40,7 @@ public class StandardValidator implements GeometryValidator {
 	@Override
 	public void validate(Geometry geometry) {
 		if (ignoreZValue == false) {
-			geometry.visit(new GeometryVisitor<Void, RuntimeException>() {
+			geometry.visit(new GeometryVisitor<>() {
 
 				@Override
 				public Void visit(Point point) throws RuntimeException {

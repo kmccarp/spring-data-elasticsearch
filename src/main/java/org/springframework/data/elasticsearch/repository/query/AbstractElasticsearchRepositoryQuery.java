@@ -129,7 +129,7 @@ public abstract class AbstractElasticsearchRepositoryQuery implements Repository
 			result = elasticsearchOperations.searchOne(query, clazz, index);
 		}
 
-		return (queryMethod.isNotSearchHitMethod() && queryMethod.isNotSearchPageMethod())
+		return queryMethod.isNotSearchHitMethod() && queryMethod.isNotSearchPageMethod()
 				? SearchHitSupport.unwrapSearchHits(result)
 				: result;
 	}

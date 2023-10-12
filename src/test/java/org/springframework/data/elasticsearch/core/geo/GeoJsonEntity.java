@@ -209,39 +209,55 @@ public class GeoJsonEntity {
 
 	@Override
 	public boolean equals(Object o) {
-		if (this == o)
-			return true;
-		if (!(o instanceof GeoJsonEntity that))
-			return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof GeoJsonEntity that)) {
+            return false;
+        }
 
-		if (!Objects.equals(id, that.id))
-			return false;
-		if (!Objects.equals(point1, that.point1))
-			return false;
-		if (!Objects.equals(point2, that.point2))
-			return false;
-		if (!Objects.equals(multiPoint1, that.multiPoint1))
-			return false;
-		if (!Objects.equals(multiPoint2, that.multiPoint2))
-			return false;
-		if (!Objects.equals(lineString1, that.lineString1))
-			return false;
-		if (!Objects.equals(lineString2, that.lineString2))
-			return false;
-		if (!Objects.equals(multiLineString1, that.multiLineString1))
-			return false;
-		if (!Objects.equals(multiLineString2, that.multiLineString2))
-			return false;
-		if (!Objects.equals(polygon1, that.polygon1))
-			return false;
-		if (!Objects.equals(polygon2, that.polygon2))
-			return false;
-		if (!Objects.equals(multiPolygon1, that.multiPolygon1))
-			return false;
-		if (!Objects.equals(multiPolygon2, that.multiPolygon2))
-			return false;
-		if (!Objects.equals(geometryCollection1, that.geometryCollection1))
-			return false;
+        if (!Objects.equals(id, that.id)) {
+            return false;
+        }
+        if (!Objects.equals(point1, that.point1)) {
+            return false;
+        }
+        if (!Objects.equals(point2, that.point2)) {
+            return false;
+        }
+        if (!Objects.equals(multiPoint1, that.multiPoint1)) {
+            return false;
+        }
+        if (!Objects.equals(multiPoint2, that.multiPoint2)) {
+            return false;
+        }
+        if (!Objects.equals(lineString1, that.lineString1)) {
+            return false;
+        }
+        if (!Objects.equals(lineString2, that.lineString2)) {
+            return false;
+        }
+        if (!Objects.equals(multiLineString1, that.multiLineString1)) {
+            return false;
+        }
+        if (!Objects.equals(multiLineString2, that.multiLineString2)) {
+            return false;
+        }
+        if (!Objects.equals(polygon1, that.polygon1)) {
+            return false;
+        }
+        if (!Objects.equals(polygon2, that.polygon2)) {
+            return false;
+        }
+        if (!Objects.equals(multiPolygon1, that.multiPolygon1)) {
+            return false;
+        }
+        if (!Objects.equals(multiPolygon2, that.multiPolygon2)) {
+            return false;
+        }
+        if (!Objects.equals(geometryCollection1, that.geometryCollection1)) {
+            return false;
+        }
 		return Objects.equals(geometryCollection2, that.geometryCollection2);
 	}
 

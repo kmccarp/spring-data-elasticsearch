@@ -33,7 +33,7 @@ import org.springframework.data.elasticsearch.junit.jupiter.SpringIntegrationTes
  * @author Peter-Josef Meisch
  */
 @SpringIntegrationTest
-abstract public class ClusterOperationsReactiveIntegrationTests {
+public abstract class ClusterOperationsReactiveIntegrationTests {
 
 	@Autowired private ReactiveElasticsearchOperations operations;
 	private ReactiveClusterOperations clusterOperations;
