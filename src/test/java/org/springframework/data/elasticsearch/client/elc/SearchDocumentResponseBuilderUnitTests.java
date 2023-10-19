@@ -39,7 +39,7 @@ import com.google.common.collect.ImmutableMap;
  */
 class SearchDocumentResponseBuilderUnitTests {
 
-	private JacksonJsonpMapper jsonpMapper = new JacksonJsonpMapper();
+	private final JacksonJsonpMapper jsonpMapper = new JacksonJsonpMapper();
 
 	@Test // #2681
 	void shouldGetPhraseSuggestion() throws JSONException {

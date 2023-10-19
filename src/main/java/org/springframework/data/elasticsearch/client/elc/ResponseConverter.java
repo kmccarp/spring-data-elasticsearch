@@ -159,7 +159,7 @@ class ResponseConverter {
 
 			Function<IndexSettings, Settings> indexSettingsToSettings = indexSettings -> {
 				Settings parsedSettings = Settings.parse(toJson(indexSettings, jsonpMapper));
-				return (indexSettings.index() != null) ? parsedSettings : new Settings().append("index", parsedSettings);
+				return indexSettings.index() != null ? parsedSettings : new Settings().append("index", parsedSettings);
 			};
 
 			if (indexState.defaults() != null) {
@@ -336,7 +336,7 @@ class ResponseConverter {
 			}
 
 			Settings parsedSettings = Settings.parse(toJson(indexSettings, jsonpMapper));
-			return (indexSettings.index() != null) ? parsedSettings : new Settings().append("index", parsedSettings);
+			return indexSettings.index() != null ? parsedSettings : new Settings().append("index", parsedSettings);
 		};
 		var settings = indexSettingsToSettings.apply(indexTemplateSummary.settings());
 
